@@ -1,0 +1,16 @@
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\bin\Debug\netcoreapp3.1\ConsoleApp.exe
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\obj\Debug\netcoreapp3.1\ConsoleApp.csprojAssemblyReference.cache
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\obj\Debug\netcoreapp3.1\ConsoleApp.AssemblyInfoInputs.cache
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\obj\Debug\netcoreapp3.1\ConsoleApp.AssemblyInfo.cs
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\bin\Debug\netcoreapp3.1\ConsoleApp.deps.json
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\bin\Debug\netcoreapp3.1\ConsoleApp.runtimeconfig.json
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\bin\Debug\netcoreapp3.1\ConsoleApp.runtimeconfig.dev.json
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\bin\Debug\netcoreapp3.1\ConsoleApp.dll
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\bin\Debug\netcoreapp3.1\ConsoleApp.pdb
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\bin\Debug\netcoreapp3.1\RestSharp.dll
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\obj\Debug\netcoreapp3.1\ConsoleApp.csproj.CopyComplete
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\obj\Debug\netcoreapp3.1\ConsoleApp.dll
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\obj\Debug\netcoreapp3.1\ConsoleApp.pdb
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\obj\Debug\netcoreapp3.1\ConsoleApp.genruntimeconfig.cache
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\gabriel.meyer\source\repos\IS4.Samples\ConsoleApp\obj\Debug\netcoreapp3.1\ConsoleApp.csproj.CoreCompileInputs.cache

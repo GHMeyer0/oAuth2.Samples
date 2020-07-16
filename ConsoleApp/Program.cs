@@ -27,16 +27,17 @@ namespace ConsoleApp
 
         private static TokenValidationResponse GetToken()
         {
-            string url = "https://excelencia.tuneauth.com.br/connect/token";
+            string url = "http://192.168.0.106:8080/auth/realms/excelencia-cobrancas/protocol/openid-connect/token";
             var client = new RestClient(url);
+            client.Authenticator = new RestSharp.Authenticators.HttpBasicAuthenticator("dotnet-client", "139bc0a9-fe74-4083-b18f-e0b4fe956777");
             var request = new RestRequest(Method.POST);
 
             request.AddHeader("content-type", "application/x-www-form-urlencoded");
+            request.AddHeader("Accept", "application/json");
             request.AddParameter("grant_type", "client_credentials");
-            request.AddParameter("client_id", "console-app");
-            request.AddParameter("scope", "report-api.write");
-            request.AddParameter("client_secret", "app-console");
-
+            request.AddParameter("client_id", "dotnet-client");
+            request.AddParameter("client_secret", "139bc0a9-fe74-4083-b18f-e0b4fe956777");
+            request.AddParameter("scope", "email");
             var response = client.Post(request);
             return JsonConvert.DeserializeObject<TokenValidationResponse>(response.Content);
         }

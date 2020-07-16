@@ -1,18 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Threading.Tasks;
-using IdentityModel;
-using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace WebAPI
 {
@@ -31,19 +25,36 @@ namespace WebAPI
             services.AddControllers();
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-            services.AddAuthentication(o =>
+            services
+                .AddAuthentication(options =>
                 {
-                    o.DefaultScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
-                    o.DefaultAuthenticateScheme = IdentityServerAuthenticationDefaults.AuthenticationScheme;
+                    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 })
-                .AddIdentityServerAuthentication(o =>
+                .AddJwtBearer(cfg =>
                 {
-                    o.Authority = "https://excelencia.tuneauth.com.br/";
-                    o.RequireHttpsMetadata = true;
-                    o.ApiName = "report-api";
-                    o.ApiSecret = "segredo-secreto";
-                    o.RoleClaimType = JwtClaimTypes.Role;
-                    o.NameClaimType = JwtClaimTypes.Name;
+                    // only for testing
+                    cfg.RequireHttpsMetadata = false;
+                    cfg.Authority = "http://192.168.0.106:8080/auth/realms/excelencia-cobrancas";
+                    cfg.IncludeErrorDetails = true;
+                    cfg.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateAudience = false,
+                        ValidateIssuerSigningKey = true,
+                        ValidateIssuer = true,
+                        ValidIssuer = "http://192.168.0.106:8080/auth/realms/excelencia-cobrancas",
+                        ValidateLifetime = true
+                    };
+                    cfg.Events = new JwtBearerEvents()
+                    {
+                        OnAuthenticationFailed = c =>
+                        {
+                            c.NoResult();
+                            c.Response.StatusCode = 401;
+                            c.Response.ContentType = "text/plain";
+                            return c.Response.WriteAsync(c.Exception.ToString());
+                        }
+                    };
                 });
         }
 

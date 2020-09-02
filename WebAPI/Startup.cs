@@ -34,15 +34,15 @@ namespace WebAPI
                 .AddJwtBearer(cfg =>
                 {
                     // only for testing
-                    cfg.RequireHttpsMetadata = false;
-                    cfg.Authority = "http://192.168.0.106:8080/auth/realms/excelencia-cobrancas";
+                    cfg.RequireHttpsMetadata = true;
+                    cfg.Authority = "https://tuneauth.com.br/auth/realms/excelencia-dev";
                     cfg.IncludeErrorDetails = true;
                     cfg.TokenValidationParameters = new TokenValidationParameters()
                     {
                         ValidateAudience = false,
                         ValidateIssuerSigningKey = true,
                         ValidateIssuer = true,
-                        ValidIssuer = "http://192.168.0.106:8080/auth/realms/excelencia-cobrancas",
+                        ValidIssuer = "https://tuneauth.com.br/auth/realms/excelencia-dev",
                         ValidateLifetime = true
                     };
                     cfg.Events = new JwtBearerEvents()

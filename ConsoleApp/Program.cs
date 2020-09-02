@@ -9,6 +9,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
+            Console.ReadKey();
 
             var token = GetToken();
 
@@ -27,17 +28,14 @@ namespace ConsoleApp
 
         private static TokenValidationResponse GetToken()
         {
-            string url = "http://192.168.0.106:8080/auth/realms/excelencia-cobrancas/protocol/openid-connect/token";
+            string url = "https://tuneauth.com.br/auth/realms/excelencia-dev/protocol/openid-connect/token";
             var client = new RestClient(url);
-            client.Authenticator = new RestSharp.Authenticators.HttpBasicAuthenticator("dotnet-client", "139bc0a9-fe74-4083-b18f-e0b4fe956777");
             var request = new RestRequest(Method.POST);
-
             request.AddHeader("content-type", "application/x-www-form-urlencoded");
-            request.AddHeader("Accept", "application/json");
+            request.AddHeader("Accept", "a  pplication/json");
             request.AddParameter("grant_type", "client_credentials");
-            request.AddParameter("client_id", "dotnet-client");
-            request.AddParameter("client_secret", "139bc0a9-fe74-4083-b18f-e0b4fe956777");
-            request.AddParameter("scope", "email");
+            request.AddParameter("client_id", "example-server");
+            request.AddParameter("client_secret", "550f0e55-dec8-40b0-9148-0dd501c60c48");
             var response = client.Post(request);
             return JsonConvert.DeserializeObject<TokenValidationResponse>(response.Content);
         }

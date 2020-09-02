@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{B8B98C3D-75F2-460B-862A-BFBE98C7BC73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{B8B98C3D-75F2-460B-862A-BFBE98C7BC73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{353CC176-AF1D-4D73-80EB-927EA483747E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{353CC176-AF1D-4D73-80EB-927EA483747E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeycloakAuthz", "KeycloakAuthz\KeycloakAuthz.csproj", "{A5FF0528-262F-420F-BC65-978A78F39C20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{353CC176-AF1D-4D73-80EB-927EA483747E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{353CC176-AF1D-4D73-80EB-927EA483747E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{353CC176-AF1D-4D73-80EB-927EA483747E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5FF0528-262F-420F-BC65-978A78F39C20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5FF0528-262F-420F-BC65-978A78F39C20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5FF0528-262F-420F-BC65-978A78F39C20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5FF0528-262F-420F-BC65-978A78F39C20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

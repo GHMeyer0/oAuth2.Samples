@@ -1,0 +1,10 @@
+{
+  "realm": "excelencia-dev",
+  "url": "https://tuneauth.com.br/auth/",
+  "auth-server-url": "https://tuneauth.com.br/auth/",
+  "ssl-required": "external",
+  "resource": "exemple-react",
+  "clientId": "exemple-react",
+  "public-client": true,
+  "confidential-port": 0
+}

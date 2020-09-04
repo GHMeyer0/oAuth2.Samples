@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{B8B98C3D-75F2-460B-862A-BFBE98C7BC73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "src\WebAPI\WebAPI.csproj", "{B8B98C3D-75F2-460B-862A-BFBE98C7BC73}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{353CC176-AF1D-4D73-80EB-927EA483747E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerClient", "src\ServerClient\ServerClient.csproj", "{353CC176-AF1D-4D73-80EB-927EA483747E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeycloakAuthz", "KeycloakAuthz\KeycloakAuthz.csproj", "{A5FF0528-262F-420F-BC65-978A78F39C20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KeycloakAuthz", "src\KeycloakAuthz\KeycloakAuthz.csproj", "{A5FF0528-262F-420F-BC65-978A78F39C20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

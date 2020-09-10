@@ -1,7 +1,7 @@
+import { useKeycloak } from "@react-keycloak/web";
+import PropTypes from "prop-types";
 import React from "react";
 import { Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
-import { useKeycloak } from "@react-keycloak/web";
 
 const GuestGuard = ({ children }) => {
   const { keycloak, initialized } = useKeycloak();

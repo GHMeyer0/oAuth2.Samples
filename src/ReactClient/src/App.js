@@ -1,15 +1,11 @@
-import React, { useState } from "react";
 import Container from "@material-ui/core/Container";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import Link from "@material-ui/core/Link";
-import { Button } from "@material-ui/core";
-import axios from "axios";
-import routes, { renderRoutes } from "./routes";
-import { Router, MemoryRouter } from "react-router-dom";
-import { createBrowserHistory } from "history";
 import { KeycloakProvider } from "@react-keycloak/web";
+import axios from "axios";
+import { createBrowserHistory } from "history";
+import React, { useState } from "react";
+import { MemoryRouter, Router } from "react-router-dom";
 import keycloak from "./keycloak";
+import routes, { renderRoutes } from "./routes";
 
 const history = createBrowserHistory();
 

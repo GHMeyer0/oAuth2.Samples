@@ -15,6 +15,7 @@ using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using OpenTelemetry.Trace;
 
 namespace WebAPI
 {
@@ -46,14 +47,14 @@ namespace WebAPI
                 {
                     // only for testing
                     cfg.RequireHttpsMetadata = true;
-                    cfg.Authority = "https://tuneauth.com.br/auth/realms/excelencia-dev";
+                    cfg.Authority = "https://tuneauth.com.br/auth/realms/tiino-dev";
                     cfg.IncludeErrorDetails = true;
                     cfg.TokenValidationParameters = new TokenValidationParameters()
                     {
                         ValidateAudience = false,
                         ValidateIssuerSigningKey = true,
                         ValidateIssuer = true,
-                        ValidIssuer = "https://tuneauth.com.br/auth/realms/excelencia-dev",
+                        ValidIssuer = "https://tuneauth.com.br/auth/realms/tiino-dev",
                         ValidateLifetime = true
                     };
                     cfg.Events = new JwtBearerEvents()
@@ -67,6 +68,13 @@ namespace WebAPI
                         }
                     };
                 });
+
+            services.AddOpenTelemetryTracerProvider((builder) => builder
+                .AddAspNetCoreInstrumentation()
+                .AddHttpClientInstrumentation()
+                .AddSqlClientInstrumentation()
+                .AddJaegerExporter()
+                );
 
             services.AddSwaggerGen(c =>
             {
@@ -99,16 +107,18 @@ namespace WebAPI
                     Type = SecuritySchemeType.OAuth2,
                     Flows = new OpenApiOAuthFlows
                     {
-                        ClientCredentials = new OpenApiOAuthFlow
+                        AuthorizationCode = new OpenApiOAuthFlow
                         {
-                            AuthorizationUrl = new Uri("https://tuneauth.com.br/auth/realms/excelencia-dev"),
-                            TokenUrl = new Uri("https://tuneauth.com.br/auth/realms/excelencia-dev/protocol/openid-connect/token"),
+                            AuthorizationUrl = new Uri("https://tuneauth.com.br/auth/realms/tiino-dev/protocol/openid-connect/auth"),
+                            TokenUrl = new Uri("https://tuneauth.com.br/auth/realms/tiino-dev/protocol/openid-connect/token"),
+                            RefreshUrl = new Uri("https://tuneauth.com.br/auth/realms/tiino-dev/protocol/openid-connect/token"),
                             Scopes = new Dictionary<string, string>
                             {
                                 { "read", "Acesso para leitura" },
                                 { "write", "Acesso para escrita" }
                             }
                         }
+                        
                     }
                 });
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -142,6 +152,11 @@ namespace WebAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
+                c.OAuthClientId("swagger");
+                c.OAuthClientSecret("b506af29-5389-4539-bdf5-157e96509174");
+                c.OAuthRealm("tiino-dev");
+                c.OAuthScopeSeparator(" ");
+                c.OAuthUsePkce();
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Excelência API V1");
             });
 
